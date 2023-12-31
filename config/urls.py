@@ -24,6 +24,7 @@ urlpatterns = [
     path('url/', url_view),
     path('url/<str:username>/', url_parameter_view),
     path('fbv/', function_view),
-    path('posts/', include('posts.urls', namespace='posts')),
+
     path('', index, name='index'),
+    path('posts/', include('posts.urls', namespace='posts')),
 ]
