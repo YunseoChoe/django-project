@@ -19,13 +19,15 @@ def post_create_view(request):
     else:
         image = request.FILES.get('image') # image는 file로 받아야 됨
         content = request.POST.get('content')
+        writer = request.POST.get('writer')
         print(image)
         print(content)
+        print(writer)
         # data 생성
         Post.objects.create(
             image = image,
             content = content,
-            # writer = request.user # 로그인 후 동작됨
+            writer = request.user # 로그인 후 동작됨
         )
         return redirect('index')
 
@@ -35,26 +37,25 @@ def post_update_view(request):
 def post_delete_view(request):
     return render(request, 'posts/post_confirm_delete.html')
 
-# Create your views here.
-def url_view(request):
-    print('url_view()')
-    data = {'code': '001', 'msg': 'OK'}
-    # return HttpResponse('<h1>url_view</h1>')
-    return JsonResponse(data) # Json 형식
+# def url_view(request):
+#     print('url_view()')
+#     data = {'code': '001', 'msg': 'OK'}
+#     # return HttpResponse('<h1>url_view</h1>')
+#     return JsonResponse(data) # Json 형식
 
-def url_parameter_view(request, username):
-    print('url_parameter_view()')
-    print(f'username: {username}')
-    print(f'request.GET: {request.GET}')
-    return HttpResponse(username)
+# def url_parameter_view(request, username):
+#     print('url_parameter_view()')
+#     print(f'username: {username}')
+#     print(f'request.GET: {request.GET}')
+#     return HttpResponse(username)
 
-def function_view(request):
-    print(f'request.method: {request.method}')
-    # 데이터를 받을 때 ex) 데이터 검색
-    if request.method == 'GET':
-        print(f'request.GET: {request.GET}')
+# def function_view(request):
+#     print(f'request.method: {request.method}')
+#     # 데이터를 받을 때 ex) 데이터 검색
+#     if request.method == 'GET':
+#         print(f'request.GET: {request.GET}')
 
-    # 데이터를 추가나 생성할 때, ex) 회원가입
-    elif request.method == 'POST':
-        print(f'request.POST: {request.POST}') 
-    return render(request, 'view.html')
+#     # 데이터를 추가나 생성할 때, ex) 회원가입
+#     elif request.method == 'POST':
+#         print(f'request.POST: {request.POST}') 
+#     return render(request, 'view.html')
