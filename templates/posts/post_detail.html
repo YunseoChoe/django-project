@@ -2,5 +2,12 @@
 {% block title %}글 상세{% endblock %}
 
 {% block content %}
-<h1>Post 상세 화면</h1>
+    <h1>Post 상세 화면</h1>
+    <div>
+        <strong>이미지:</strong> {{ post.image }}<br>
+        <strong>내용:</strong> {{ post.content }}<br>
+        <!-- 기타 다른 게시글 정보를 표시할 수 있습니다. -->
+    </div>
 {% endblock %}
+
+
