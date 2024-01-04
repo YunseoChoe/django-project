@@ -1,22 +1,81 @@
-<h1>회원가입 페이지. </h1>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 페이지</title>
+    <style>
+        body {
+            background-color: #ffffff; /* 흰색 배경색 */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
 
-<form action="{% url 'signup' %}" method="POST" >
-{% csrf_token %}
-    Username:
-    <br>
-    <input name='username' type='text' value=''>
-    <br>
-    Password:
-    <br>
-    <input name='password1' type="password" value=''>
-    <br>
-    Confirm Password:
-    <br>
-    <input name='password2' type="password" value=''>
-    <br>
-    email:
-    <br>
-    <input name="email" type="text" value=''>
-    <br>
-    <input class='btn btn-primary' type="submit" value="signup">
-</form>
+        h1 {
+            color: #3498db; /* 파란색 계열의 색상 */
+        }
+
+        form {
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff; /* 흰색 배경색 */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* 어두운 회색 계열의 글자색 */
+        }
+
+        input {
+            width: calc(100% - 22px); /* 왼쪽 오른쪽에 각각 11px 마진 적용 */
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db; /* 파란색 계열의 색상 */
+            color: #ffffff; /* 흰색 글자색 */
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9; /* 진한 파란색 계열으로 변경 */
+        }
+    </style>
+</head>
+<body>
+    <h1>회원가입 페이지</h1>
+
+    <form action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
+        <label for="username">사용자 이름:</label>
+        <br>
+        <input id="username" name="username" type="text" value="">
+        <br>
+
+        <label for="password1">비밀번호:</label>
+        <br>
+        <input id="password1" name="password1" type="password" value="">
+        <br>
+
+        <label for="password2">비밀번호 확인:</label>
+        <br>
+        <input id="password2" name="password2" type="password" value="">
+        <br>
+
+        <label for="email">이메일:</label>
+        <br>
+        <input id="email" name="email" type="text" value="">
+        <br>
+
+        <input class="btn btn-primary" type="submit" value="가입하기">
+    </form>
+</body>
+</html>

@@ -1,3 +1,35 @@
-<h1>로그인에 성공했네?ㅋㅋ</h1>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 성공</title>
+    <style>
+        body {
+            background-color: #ffffff; /* 흰색 배경색 */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
 
-<a href="{% url "logout" %}">로그아웃하기</a>
+        h1 {
+            color: #2ecc71; /* 초록색 계열의 색상 */
+        }
+
+        a {
+            color: #3498db; /* 파란색 계열의 색상 */
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        a:hover {
+            color: #2980b9; /* 진한 파란색 계열으로 변경 */
+        }
+    </style>
+</head>
+<body>
+    <h1>로그인 성공</h1>
+
+    <a href="{% url 'logout' %}">로그아웃</a>
+</body>
+</html>
