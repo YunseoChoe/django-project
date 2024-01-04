@@ -17,7 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from posts.views import index
+# from posts.views import index
+import loginapp.views
 # url_view, url_parameter_view, function_view
 
 urlpatterns = [
@@ -26,6 +27,7 @@ urlpatterns = [
     # path('url/<str:username>/', url_parameter_view),
     # path('fbv/', function_view),
 
-    path('', index, name='index'),
+    # path('', index, name='index'),
     path('posts/', include('posts.urls', namespace='posts')),
+    path('', include('loginapp.urls')),
 ]
