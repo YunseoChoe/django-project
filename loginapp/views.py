@@ -30,7 +30,7 @@ def login(request):
             return redirect('home')
         else:
             return render(request, "login.html", {
-                'error': 'Username or Password is incorrect.',
+                'error': 'username or password is incorrect.',
             })
     else:
         return render(request, "login.html")
